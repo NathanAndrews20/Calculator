@@ -22,7 +22,7 @@ document.getElementById('buttons-container').addEventListener('click', event => 
             display.innerHTML = value;
             break;
         case 'percent':
-
+            display.innerHTML = parseFloat(display.innerHTML)/100;
             break;
         case 'divide':
         case 'multiply':
