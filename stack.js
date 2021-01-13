@@ -18,14 +18,15 @@ export default class Stack{
     }
 
     pop(){
+        let returnNode = this.head;
         this.head = this.head.next;
+        return returnNode.data;
     }
 
     peek(){
         return this.head.data;
     }
 }
-
 class Node{
     constructor(data){
         this.data = data;
