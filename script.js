@@ -28,13 +28,19 @@ document.getElementById('buttons-container').addEventListener('click', event => 
         case 'multiply':
         case 'subtract':
         case 'add':
-        case 'decimal':
             valuesStack.push(parseFloat(display.innerHTML));
             operatorStack.push(buttonId);
             operatorPushed = true;
-            break; 
+            break;
+        case 'decimal':
+
+            break;
         case 'equals':
-            
+            valuesStack.push(parseFloat(display.innerHTML));
+            let evaluation = evaluate(operatorStack,valuesStack)
+            valuesStack.push(evaluation);
+            display.innerHTML = evaluation;
+            break;
         default:
             if(display.innerHTML==='0'||operatorPushed){
                 display.innerHTML = document.getElementById(buttonId).innerHTML;
@@ -44,3 +50,27 @@ document.getElementById('buttons-container').addEventListener('click', event => 
             display.innerHTML += document.getElementById(buttonId).innerHTML;
     }
 });
+
+function evaluate(operatorStack, valuesStack){
+    let value = valuesStack.pop();
+    if(!operatorStack.isEmpty()){
+        let operator = operatorStack.pop();
+        switch(operator){
+            case 'divide':
+                value = valuesStack.pop()/value;
+                break;
+            case 'multiply':
+                value = valuesStack.pop()*value;
+                break;
+            case 'subtract':
+                value = valuesStack.pop()-value;
+                break;
+            case 'add':
+                value = valuesStack.pop()+value;
+                break;
+            default:
+                break;
+        }
+    }
+    return value;
+}
