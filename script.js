@@ -33,7 +33,10 @@ document.getElementById('buttons-container').addEventListener('click', event => 
             operatorPushed = true;
             break;
         case 'decimal':
-
+            if(display.innerHTML.includes(".")){
+                break;
+            }
+            display.innerHTML += ".";
             break;
         case 'equals':
             valuesStack.push(parseFloat(display.innerHTML));
