@@ -4,7 +4,7 @@ const operatorStack = new Stack();
 const valuesStack = new Stack();
 let display = document.getElementById('display');
 let operatorPushed = false;
-let numberPercision = 10;
+let decimalPercision = 10;
 
 document.getElementById('buttons-container').addEventListener('click', event => {
     if(event.target.class === 'row') { return; }
@@ -31,7 +31,7 @@ document.getElementById('buttons-container').addEventListener('click', event => 
         case 'multiply':
         case 'subtract':
         case 'add':
-            valuesStack.push(parseFloat(parseFloat(display.innerHTML).toPrecision(numberPercision)));
+            valuesStack.push(parseFloat(parseFloat(display.innerHTML).toPrecision(decimalPercision)));
             operatorStack.push(buttonId);
             operatorPushed = true;
             break;
@@ -78,5 +78,5 @@ function evaluate(operatorStack, valuesStack){
                 break;
         }
     }
-    return parseFloat(value.toPrecision(numberPercision));
+    return parseFloat(value.toPrecision(decimalPercision));
 }
