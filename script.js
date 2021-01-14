@@ -6,6 +6,8 @@ let display = document.getElementById('display');
 let operatorPushed = false;
 
 document.getElementById('buttons-container').addEventListener('click', event => {
+    if(event.target.class === 'row') { return; }
+    if(event.target.id === 'buttons-container') { return; }
     let buttonId = event.target.id;
     switch (buttonId) {
         case 'clear':
