@@ -10,5 +10,5 @@ Nathan Andrews
 What I Learned
 --------------
 
-* Implemented the ```stack``` data structure
+* Implemented the ```Stack``` data structure
 * Used ```Dijkstra's Two Stack Algorithm``` to evaluate arithmetic expressions
